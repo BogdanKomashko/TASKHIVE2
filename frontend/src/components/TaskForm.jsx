@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TaskForm() {
+function TaskForm({ onAdd }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('Todo');
@@ -19,6 +19,7 @@ function TaskForm() {
         setTitle('');
         setDescription('');
         setStatus('Todo');
+        if (onAdd) onAdd(); // оновлення списку
       })
       .catch(err => console.error(err));
   };
